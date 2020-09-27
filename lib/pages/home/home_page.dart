@@ -11,9 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
-
   Widget _notice(){
     return Container(
       color: Theme.of(context).scaffoldBackgroundColor,
@@ -129,18 +126,20 @@ class _HomePageState extends State<HomePage> {
       statusBarIconBrightness: Brightness.dark,
     ));
     return Scaffold(
+      backgroundColor: Colors.white,
       body: EasyRefresh.builder(
         header: BallPulseHeader(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           enableHapticFeedback: false,
           color: Theme.of(context).primaryColor
         ),
         onRefresh: (){
-          return Future.value(10);
+          return Future.delayed(Duration(seconds: 1));
 
         },
         builder: (context, physics, header, footer){
           return Container(
-            color: Theme.of(context).scaffoldBackgroundColor,
+            // color: Theme.of(context).scaffoldBackgroundColor,
             child: CustomScrollView(
               slivers: [
                 SliverPersistentHeader(
@@ -260,7 +259,7 @@ class _HomePageState extends State<HomePage> {
                 SliverToBoxAdapter(
                   child: Container(
                     // height: 40,
-                    color: Colors.white,
+                    // color: Colors.white,
                     padding: EdgeInsets.symmetric(
                       horizontal: 50,
                       vertical: 40
